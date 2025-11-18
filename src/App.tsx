@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ModernNavbar from '@/components/ModernNavbarTest';
+import ModernNavbar from '@/components/ModernNavbar';
 import HomePage from './pages/HomePage';
 import ProfilePage from './pages/ProfilePage';
 import CaseStudyPage from './pages/CaseStudyPage';
