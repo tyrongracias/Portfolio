@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react()],
-  publicDir: "./static",
+  publicDir: "./public",
   base: "./",
   // PostCSS/Tailwind is configured in `postcss.config.cjs`.
   resolve: {

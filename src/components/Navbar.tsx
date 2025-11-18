@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { SearchIcon, BellIcon, MessageCircleIcon, MenuIcon, XIcon, MoonIcon, SunIcon } from 'lucide-react';
+import { MenuIcon, XIcon, MoonIcon, SunIcon, User, Briefcase, Mail, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,17 +46,21 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/90 backdrop-blur-navbar border-b border-border shadow-sm'
-          : 'bg-background/90 backdrop-blur-navbar'
+          ? isDark 
+            ? 'bg-black/90 backdrop-blur-xl border-b border-white/10'
+            : 'bg-white/90 backdrop-blur-xl border-b border-black/10'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="text-h4 font-semibold text-foreground">CreatorVerse</div>
+            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              Portfolio
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

@@ -7,60 +7,68 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 240 10% 3.9%;
-    --primary-hover: 217 91% 67%;
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 217 91% 35%;
-    --secondary-accent: 217 91% 60%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 85%;
-    --ring: 217 91% 60%;
-    --radius: 0.5rem;
+    /* Centralized color system */
+    --color-primary: #00fcd2;
+    
+    --background: 0 0% 0%;
+    --foreground: 210 40% 98%;
+    --card: 0 0% 0%;
+    --card-foreground: 210 40% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 180 100% 49%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 180 100% 59%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-accent: 262.1 83.3% 57.8%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
     --success: 142 71% 45%;
     --warning: 38 92% 50%;
     --error: 0 84% 60%;
-    --info: 217 91% 60%;
+    --info: 262.1 83.3% 57.8%;
+    
+    /* Modern gradient variables */
+    --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-pink: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-teal: linear-gradient(135deg, #00fcd2 0%, #00e6c4 100%);
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 0%;
-    --primary-hover: 217 91% 67%;
-    --secondary: 0 0% 0%;
-    --secondary-foreground: 217 91% 60%;
-    --secondary-accent: 217 91% 60%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 262.1 83.3% 67%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-accent: 262.1 83.3% 57.8%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 217 91% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 262.1 83.3% 57.8%;
     --success: 142 71% 45%;
     --warning: 38 92% 50%;
     --error: 0 84% 60%;
-    --info: 217 91% 60%;
+    --info: 262.1 83.3% 57.8%;
   }
 }
 
@@ -68,11 +76,43 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
     font-family: 'Cal Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
   }
+  
   html {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
   }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px rgba(167, 139, 250, 0.3); }
+  to { box-shadow: 0 0 30px rgba(167, 139, 250, 0.6); }
 }
